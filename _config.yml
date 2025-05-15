@@ -1,6 +1,0 @@
-title: Data Communication Demos
-     description: Demonstrations for Bit Stuffing and Stop-and-Wait Protocol
-     theme: minima
-     plugins:
-       - jekyll-feed
-     permalink: pretty

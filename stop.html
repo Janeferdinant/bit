@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop-and-Wait Protocol</title>
+    <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/babel-standalone@7.22.9/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function App() {
+            const [frames, setFrames] = React.useState('');
+            const [timeout, setTimeout] = React.useState(2);
+            const [logs, setLogs] = React.useState([]);
+            const [error, setError] = React.useState('');
+
+            const simulateStopAndWait = () => {
+                const frameArray = frames.split(',').map(f => f.trim());
+                if (frameArray.some(f => !f)) {
+                    setError('Please enter valid frames (comma-separated numbers).');
+                    return;
+                }
+                setError('');
+                setLogs(['Starting Stop-and-Wait Simulation']);
+                
+                let i = 0;
+                const simulate = () => {
+                    if (i >= frameArray.length) {
+                        setLogs(prev => [...prev, 'Sender: All frames sent successfully']);
+                        return;
+                    }
+                    setLogs(prev => [...prev, `Sender: Sending frame ${frameArray[i]}`]);
+                    setTimeout(() => {
+                        if (Math.random() > 0.2) {
+                            setLogs(prev => [...prev, `Sender: ACK for frame ${frameArray[i]} received`]);
+                            i++;
+                            simulate();
+                        } else {
+                            setLogs(prev => [...prev, `Sender: Timeout for frame ${frameArray[i]}, retransmitting`]);
+                            setTimeout(simulate, timeout * 1000);
+                        }
+                    }, 1000);
+                };
+                simulate();
+            };
+
+            return (
+                <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
+                    <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-md">
+                        <h1 className="text-2xl font-bold text-center text-gray-800 mb-4">Stop-and-Wait Protocol</h1>
+                        <div className="mb-4">
+                            <label className="block text-gray-700 mb-2">Enter Frames (comma-separated):</label>
+                            <input
+                                type="text"
+                                value={frames}
+                                onChange={(e) => setFrames(e.target.value)}
+                                className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="e.g., 1,2,3,4,5"
+                            />
+                        </div>
+                        <div className="mb-4">
+                            <label className="block text-gray-700 mb-2">Timeout (seconds):</label>
+                            <input
+                                type="number"
+                                value={timeout}
+                                onChange={(e) => setTimeout(e.target.value)}
+                                className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                min="1"
+                            />
+                            {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
+                        </div>
+                        <button
+                            onClick={simulateStopAndWait}
+                            className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition"
+                        >
+                            Simulate
+                        </button>
+                        {logs.length > 0 && (
+                            <div className="mt-4">
+                                <h3 className="text-lg font-semibold text-gray-800">Simulation Logs</h3>
+                                <ul className="text-gray-600 list-disc pl-5">
+                                    {logs.map((log, index) => (
+                                        <li key={index}>{log}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+                    </div>
+                    <div className="mt-6 bg-white shadow-lg rounded-lg p-6 w-full max-w-md">
+                        <h2 className="text-xl font-semibold text-gray-800 mb-2">How It Works</h2>
+                        <p className="text-gray-600">
+                            <strong>Stop-and-Wait Protocol:</strong> The sender sends one frame and waits for an acknowledgment (ACK) from the receiver. If the ACK is received, the next frame is sent. If a timeout occurs (no ACK), the frame is retransmitted.
+                        </p>
+                        <h3 className="text-lg font-semibold text-gray-800 mt-4">Numerical Example</h3>
+                        <p className="text-gray-600">
+                            <strong>Input Frames:</strong> 1,2,3<br />
+                            <strong>Timeout:</strong> 2 seconds<br />
+                            <strong>Simulation:</strong><br />
+                            - Sender sends frame 1.<br />
+                            - Receiver gets frame 1, sends ACK.<br />
+                            - Sender receives ACK, sends frame 2.<br />
+                            - (Assume ACK for frame 2 is lost.)<br />
+                            - Sender waits 2 seconds, times out, retransmits frame 2.<br />
+                            - Receiver gets frame 2, sends ACK.<br />
+                            - Sender receives ACK, sends frame 3.<br />
+                            - Receiver gets frame 3, sends ACK.<br />
+                            - Sender receives ACK, ends.<br />
+                            <strong>Output:</strong> All frames sent successfully.
+                        </p>
+                    </div>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>

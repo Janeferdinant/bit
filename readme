@@ -14,4 +14,18 @@ Bit Stuffing and Destuffing Demo
  - Use GitHub Pages for the frontend:
    - Enable GitHub Pages in repository settings.
    - Set the source to the `main` branch.
+ This project demonstrates the Stop-and-Wait Protocol with a modern React frontend.
 
+ ## Setup
+ 1. **Python Backend**:
+    - Run `stop_and_wait.py` to test the backend logic.
+    - Requires Python 3.x.
+ 2. **Frontend**:
+    - Open `stop_and_wait.html` in a browser to use the React app.
+    - No additional setup required (uses CDN for React and Tailwind).
+
+ ## Deployment
+ - Push to GitHub.
+ - Use GitHub Pages for the frontend:
+   - Enable GitHub Pages in repository settings.
+   - Set the source to the `main` branch.

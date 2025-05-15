@@ -52,6 +52,27 @@ Run locally: bundle exec jekyll serve.
 
 Frontend:
 Visit the deployed site or open HTML files locally.
+# Data Communication Demos
+
+This repository contains demonstrations for Bit Stuffing/Destuffing and Stop-and-Wait Protocol.
+
+## Files
+- `bit_stuff_destuff.py`: Python script for bit stuffing/destuffing logic.
+- `stop_and_wait.py`: Python script for stop-and-wait protocol simulation.
+- `index.html`: Landing page linking to both demos.
+- `bit_stuff.html`: Frontend for bit stuffing demo.
+- `stop_and_wait.html`: Frontend for stop-and-wait demo.
+
+## Setup
+1. **Python Scripts**:
+   - Run `bit_stuff_destuff.py` or `stop_and_wait.py` locally with Python 3.x.
+2. **Frontend**:
+   - Visit the deployed site or open HTML files locally.
+
+## Deployed Site
+- Visit: https://janeferdinant.github.io/bit
+- Bit Stuffing Demo: https://janeferdinant.github.io/bit/bit_stuff.html
+- Stop-and-Wait Demo: https://janeferdinant.github.io/bit/stop_and_wait.html
 
 
 

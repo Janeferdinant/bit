@@ -1,0 +1,17 @@
+Bit Stuffing and Destuffing Demo
+ This project demonstrates bit stuffing and destuffing with a modern React frontend.
+
+ ## Setup
+ 1. **Python Backend**:
+    - Run `bit_stuff_destuff.py` to test the backend logic.
+    - Requires Python 3.x.
+ 2. **Frontend**:
+    - Open `index.html` in a browser to use the React app.
+    - No additional setup required (uses CDN for React and Tailwind).
+
+ ## Deployment
+ - Push to GitHub.
+ - Use GitHub Pages for the frontend:
+   - Enable GitHub Pages in repository settings.
+   - Set the source to the `main` branch.
+

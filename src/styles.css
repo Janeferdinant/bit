@@ -1,0 +1,5 @@
+/* Tailwind CSS input. `npm run build:css` compiles this into css/site.css,
+   keeping only the utility classes used in *.html and src/*.jsx. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

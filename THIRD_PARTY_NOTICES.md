@@ -1,6 +1,6 @@
 # Third-party notices
 
-Original work in this repository is © Jane Rose Ferdinant, licensed CC BY-NC-SA 4.0 (see LICENSE). The components below keep their own licenses.
+Original work in this repository is © Jane Rose Ferdinant, licensed CC BY-NC-ND 4.0 (see LICENSE). The components below keep their own licenses.
 
 | Component | Used for | Source | License |
 |---|---|---|---|

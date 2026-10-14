@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "private": true,
   "description": "Interactive teaching demos for data communication: bit stuffing/destuffing and the stop-and-wait protocol.",
-  "license": "CC-BY-NC-SA-4.0",
+  "license": "CC-BY-NC-ND-4.0",
   "type": "module",
   "scripts": {
     "build": "npm run build:js && npm run build:css",

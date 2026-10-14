@@ -1,7 +1,9 @@
 """Tests for the command-line interface (written before the implementation)."""
 import json
+import os
 import subprocess
 import sys
+from pathlib import Path
 
 import pytest
 
@@ -106,7 +108,9 @@ def test_arq_rejects_bad_options(bad):
 
 
 def test_module_entry_point_runs():
+    src = str(Path(__file__).resolve().parents[1] / "src")
+    env = {**os.environ, "PYTHONPATH": src + os.pathsep + os.environ.get("PYTHONPATH", "")}
     done = subprocess.run(
-        [sys.executable, "-m", "bitcomm", "stuff", "11111"], capture_output=True, text=True, check=False
+        [sys.executable, "-m", "bitcomm", "stuff", "11111"], capture_output=True, text=True, check=False, env=env
     )
     assert done.returncode == 0 and done.stdout.strip() == "111110"

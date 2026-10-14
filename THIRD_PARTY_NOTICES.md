@@ -8,6 +8,7 @@ Original work in this repository is © Jane Rose Ferdinant, licensed CC BY-NC-ND
 | Tailwind CSS 3.4.19 | Generates `css/site.css` (its base styles and the utility classes the pages use), which is committed. | https://github.com/tailwindlabs/tailwindcss | MIT |
 | esbuild 0.28.2 | Build tool that compiles `src/*.jsx` into `js/`. Not distributed. | https://github.com/evanw/esbuild | MIT |
 | Playwright 1.59.1 | Browser tests. Not distributed. | https://github.com/microsoft/playwright | Apache-2.0 |
+| pytest 9.x | Python tests (dev dependency). Not distributed. | https://github.com/pytest-dev/pytest | MIT |
 
 ## Tailwind CSS (MIT)
 

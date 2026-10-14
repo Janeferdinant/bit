@@ -1,3 +1,7 @@
+# Original minimal command-line example of bit stuffing and destuffing (kept as written).
+# The tested reference implementation, with validation, framing, CRC and a CLI, is in python/ (package bitcomm):
+#   python -m bitcomm stuff 01111110     (run from python/src, or pip install -e python)
+
 def bit_stuffing(bits):
     stuffed = []
     count = 0

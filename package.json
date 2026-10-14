@@ -10,6 +10,8 @@
     "build:js": "esbuild src/bit_stuff.jsx src/stop_and_wait.jsx --bundle --format=iife --target=es2018 --outdir=js --log-level=warning",
     "build:css": "tailwindcss -i src/styles.css -o css/site.css --content \"./*.html,./src/**/*.jsx\" --minify",
     "test": "node --test \"test/*.test.mjs\"",
+    "vectors": "python scripts/gen_vectors.py",
+    "vectors:check": "python scripts/gen_vectors.py --check",
     "serve": "node scripts/serve.mjs",
     "test:e2e": "playwright test"
   },

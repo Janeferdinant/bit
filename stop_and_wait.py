@@ -1,3 +1,7 @@
+# Original minimal real-time stop-and-wait example (kept as written; it uses random loss and real sleeps).
+# The tested simulator with configurable loss and timeout, seeds and sequence numbers is in python/ (package bitcomm):
+#   python -m bitcomm arq --frames 1,2,3 --timeout 3 --loss 20 --seed 1
+
 import time
 import random
 

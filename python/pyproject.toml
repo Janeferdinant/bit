@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bitcomm"
+version = "1.0.0"
+description = "Reference implementations of bit stuffing, CRC and a stop-and-wait ARQ simulator, with a command-line interface."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "CC-BY-NC-ND-4.0" }
+authors = [{ name = "Jane Rose Ferdinant" }]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+bitcomm = "bitcomm.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
